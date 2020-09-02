@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  final textStyles = new TextStyle(fontSize: 20.0);
-  final count = 10;
+class CounterPage extends StatefulWidget {
+  @override
+  createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  final _textStyles = new TextStyle(fontSize: 20.0);
+  int _count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,19 +21,21 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Number of tabs:',
-              style: textStyles,
+              'Number of taps:',
+              style: _textStyles,
             ),
             Text(
-              '$count',
-              style: textStyles,
+              '$_count',
+              style: _textStyles,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('Hello world!');
+          setState(() {
+            _count++;
+          });
         },
         child: Icon(Icons.add),
       ),
