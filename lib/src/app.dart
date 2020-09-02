@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(ctx) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Center(
         child: CounterPage(),
       ),
